@@ -2,7 +2,7 @@
 layout:     post
 title:      "CSS for triangle"
 subtitle:   " \"clear both\""
-date:       2016-05-10 14:00:00
+date:       2016-05-11 14:00:00
 author:     "Gsw"
 header-img: "img/post1.jpg"
 tags:
