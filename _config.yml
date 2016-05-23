@@ -10,7 +10,7 @@ title: Selvin Blog
 email: 528370630@qq.com
 description: "Selvin Blog" # this means to ignore newlines until "baseurl:"
 keyword: "前端 博客 分享 小白"
-baseurl: "http://selvin11.github.io" # the subpath of your site, e.g. /blog
+baseurl: "http://selvin11.github.io/selvin.github.io" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 # twitter_username: codeselvin
 github_username:  selvin11
@@ -20,7 +20,7 @@ facebook_username: codeselvin
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "做一个浪漫的程序猿，带上我美丽的小老婆一起飞。"
-sidebar-avatar:  'http://selvin11.github.io/img/dog.jpg'    # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar:  'http://selvin11.github.io/selvin.github.io/img/dog.jpg'    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Build settings
 # 设置不解析的文件类
