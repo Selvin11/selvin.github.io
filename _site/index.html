@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <!-- 使IE按照最新引擎渲染网页 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适配处理 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- _config.yml关键字描述 ，SEO优化处理 -->
+  <meta name="keyword" content="前端 博客 分享 小白">
+  <!-- _config.yml介绍描述 -->
+  <meta name="description" content="Selvin Blog">
+  <title>Selvin Blog</title>
+  <!-- 引入网站icon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- 引入reset样式 -->
+  <!-- <link rel="stylesheet" href="/css/reset.css"> -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <!-- 引入 bootstrap-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- 引入  font-awesome-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- 引入代码高亮样式 -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- main.css -->
+  <link rel="stylesheet" href="/css/selvin.css">
+  <!-- SEO,防止URL不同，但是内容相同的页面被搜索引擎多次收录，导致错误的将网页降权 -->
+  <link rel="canonical" href="/">
+  <!-- Rss -->
+  <link rel="alternate" type="application/rss+xml" title="Selvin Blog" href="/feed.xml">
+  <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+        <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+  <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- selvin blog head -->
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- 头部logo,使用Jekyll全局变量site.title -->
+      <!-- container容器 -->
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" id="navBtn" class="navbar-toggle" data-toggle="collapse" 
+               data-target="#example-navbar-collapse">
+               <span class="sr-only">toggle nav</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">Selvin Blog</a>
+         </div>
+         <!-- 右侧分栏 -->
+         <div class="collapse navbar-collapse navbar-right" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">   
+               <li><a href="/about.html">About</a></li>
+               <li><a href="/contact.html">Contact</a></li>
+               <li><a href="/tags.html">Tags</a></li>
+            </ul>
+         </div>
+      </div>
+</nav>
+
+
+
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-3 sidebar">
+      <!-- 左侧sidebar -->
+      <!-- Featured Tags -->
+      
+      <section>
+          <!-- no hr -->
+          <h5><a href="/tags/">FEATURED TAGS</a></h5>
+          <!-- 标签云 -->
+      <div id='tag_cloud' class="tags clearfix">
+        
+        <a href="#前端之路" title="前端之路" rel="2" class="tag">前端之路</a>
+        
+        <a href="#jquery" title="jquery" rel="1" class="tag">jquery</a>
+        
+        <a href="#JavaScript" title="JavaScript" rel="3" class="tag">JavaScript</a>
+        
+        <a href="#Shell" title="Shell" rel="1" class="tag">Shell</a>
+        
+        <a href="#CSS" title="CSS" rel="3" class="tag">CSS</a>
+        
+        <a href="#Git" title="Git" rel="1" class="tag">Git</a>
+        
+        <a href="#Grunt" title="Grunt" rel="1" class="tag">Grunt</a>
+        
+      </div>
+      </section>
+      
+    <!-- Short About -->
+      <section class="visible-lg"> 
+          <hr><h5><a href="/about.html">ABOUT ME</a></h5>
+          <div class="short-about">
+              
+                  <img src="http://selvin11.github.io/selvin.github.io/img/dog.jpg" />
+              
+              
+                  <p>做一个浪漫的程序猿，带上我美丽的小老婆一起飞。</p>
+              
+              <!-- SNS Link -->
+              <ul class="list-inline">
+                  
+                  
+                  
+                  <li>
+                      <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                          <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa  fa-stack-1x fa-inverse">知</i>
+                          </span>
+                      </a>
+                  </li>
+                  
+                  
+                  <li>
+                      <a target="_blank" href="http://weibo.com/codeselvin">
+                          <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                  </li>
+                  
+                  
+                  <li>
+                      <a target="_blank" href="https://www.facebook.com/codeselvin">
+                          <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                  </li>
+                  
+                  
+                  <li>
+                      <a target="_blank" href="https://github.com/selvin11">
+                          <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                          </span>
+                      </a>
+                  </li>
+                  
+              </ul>
+          </div>
+      </section>
+      <!-- Friends Blog -->
+      
+      <hr>
+      <h5>FRIENDS</h5>
+      <ul class="list-inline">
+          
+              <li><a href="http://selvin11.github.io/selvin.github.io/">Gsw's Blog</a></li>
+          
+              <li><a href="#">Jessica</a></li>
+          
+              <li><a href="#"></a></li>
+          
+              <li><a href="#"></a></li>
+          
+              <li><a href="#"></a></li>
+          
+      </ul>
+      
+    </div>
+      <!-- right -->
+    <div class="col-lg-9">
+      <ul class="post-list">
+      
+      <li>
+      <h2>
+        <a class="post-link" href="/grunt/2016/05/22/grunt.html">Grunt</a></br>
+        <!-- 显示副标题内容 -->
+        <h4 id="grunt-gruntfilejs">Grunt 常用插件以及Gruntfile.js配置方法</h4>
+
+
+      </h2></br>
+      <p>Grunt 常用插件以及Gruntfile.js配置方法
+
+
+  grunt-contrib-clean , 快速清除目录及文件，命令`grunt clean
+
+
+npm install grunt-contrib-clean --save-dev
+
+files 是grunt公共属性，src 是需要删除的文件夹
+执行gurnt clean 则删除 output 文件夹
+
+module.exp...</p>
+      <span class="post-date text-muted">Posted by Selvin Blog on May 22, 2016</span>
+      </li>
+      <hr>
+      
+      <li>
+      <h2>
+        <a class="post-link" href="/git/&/zsh/2016/05/19/git.html">Git</a></br>
+        <!-- 显示副标题内容 -->
+        <h4 id="git--zsh-">Git &amp; ZSH 常用命令</h4>
+
+
+      </h2></br>
+      <p>Git &amp; ZSH 常用命令
+
+
+  git 常用命令
+
+
+
+  初始化Git仓库：git init
+  将文件（新添加的或者修改的）添加进暂存区：git add file
+  查看被修改的文件状态：git status
+  将暂存区的文件提交到最终的分支仓库中：git commit -m "修改内容"
+  查看文件的不同之处：git diff
+  查看提交的历史纪录：git log...</p>
+      <span class="post-date text-muted">Posted by Selvin Blog on May 19, 2016</span>
+      </li>
+      <hr>
+      
+      <li>
+      <h2>
+        <a class="post-link" href="/2016/05/18/css3.html">CSS3</a></br>
+        <!-- 显示副标题内容 -->
+        <blockquote>
+  CSS3
+</blockquote>
+
+
+      </h2></br>
+      <p>
+  CSS3
+
+
+
+  
+    border-radius:top-left,top-right,bottom-right,bottom-left;
+  
+  
+    box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];
+  
+  
+    border-image:
+  
+  
+    color：rgba(R,G,B,A)...</p>
+      <span class="post-date text-muted">Posted by Gsw on May 18, 2016</span>
+      </li>
+      <hr>
+      
+      <li>
+      <h2>
+        <a class="post-link" href="/2016/05/16/inline-block.html">float&&dispaly</a></br>
+        <!-- 显示副标题内容 -->
+        <blockquote>
+  float&amp;&amp;dispaly:inline-block
+</blockquote>
+
+
+      </h2></br>
+      <p>
+  float&amp;&amp;dispaly:inline-block
+
+
+当两个块级元素设置为diaplay:inline-blcok时，中间会有空隙，做过一些尝试之后，发现原来是因为写代码时的换行空白符，使得中间留有空隙，在网上也发现了一篇描述很详细的文章，供参考
+
+display:inline-block引发的间隙思考
+</p>
+      <span class="post-date text-muted">Posted by Gsw on May 16, 2016</span>
+      </li>
+      <hr>
+      
+      <li>
+      <h2>
+        <a class="post-link" href="/2016/05/11/vmware.html">Vmware fusion 8</a></br>
+        <!-- 显示副标题内容 -->
+        <blockquote>
+  Vmware fusion 8 (虚拟机软件) Mac
+</blockquote>
+
+
+      </h2></br>
+      <p>
+  Vmware fusion 8 (虚拟机软件) Mac
+
+
+在Mac上疲于网上测试IE兼容性，遂捣鼓了一下虚拟机，亲测实用。
+
+Vmware fusion 8  Mac 官网下载即可 
+
+
+  Fusion 8序列号：
+
+
+FY75A-06W1M-H85PZ-0XP7T-MZ8E8
+
+ZY7TK-A3D4N-08EUZ-TQN5E-XG2TF
+
+FG1MA-25Y1J-H857P-6M...</p>
+      <span class="post-date text-muted">Posted by Gsw on May 11, 2016</span>
+      </li>
+      <hr>
+      
+      </ul>
+
+      <!-- 分页设置 -->
+      
+      <ul class="pager">
+          
+          
+          <li class="next">
+              <a href="/page2">Older Posts &rarr;</a>
+          </li>
+          
+      </ul>
+      
+      </br></br>
+      <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/selvin11">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted text-center">
+                    Copyright &copy; Selvin Blog 2016
+                    <br>
+                    Theme by <a href="https://github.com/Selvin11/selvin.github.io">Selvin</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="http://ghbtns.com/github-btn.html?user=Selvin11&repo=selvin.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/selvin.js"></script>
+
+  </body>
+
+</html>

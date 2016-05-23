@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Selvin Blog</title>
+    <description>Selvin Blog</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 23 May 2016 19:31:33 +0800</pubDate>
+    <lastBuildDate>Mon, 23 May 2016 19:31:33 +0800</lastBuildDate>
+    <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>Grunt</title>
+        <description>&lt;h4 id=&quot;grunt-gruntfilejs&quot;&gt;Grunt 常用插件以及Gruntfile.js配置方法&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;grunt-contrib-clean , 快速清除目录及文件，命令`grunt clean&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install grunt-contrib-clean --save-dev&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;files 是grunt公共属性，src 是需要删除的文件夹&lt;br /&gt;
+执行gurnt clean 则删除 output 文件夹&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;pkg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readJSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;package.json&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;clean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  			&lt;span class=&quot;na&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+ 			&lt;span class=&quot;na&quot;&gt;folder_v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/**&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  			&lt;span class=&quot;na&quot;&gt;contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/*&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  			&lt;span class=&quot;na&quot;&gt;subfolders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/*/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  			&lt;span class=&quot;na&quot;&gt;css&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/*.css&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  			&lt;span class=&quot;na&quot;&gt;all_css&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;path/to/dir/**/*.css&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;grunt-contrib-clean&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;详情请参照npm官方介绍：&lt;a href=&quot;https://www.npmjs.com/package/grunt-contrib-clean&quot;&gt;grunt-contrib-clean&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;grunt-contrib-watch 实现实时监控及自动化流程&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install grunt-contrib-watch --save-dev
+&lt;/code&gt;&lt;br /&gt;
+example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;scripts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;**/*.js&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;jshint&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;spawn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;grunt-sass sass&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install --save-dev grunt-sass&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;实例：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;load-grunt-tasks&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// npm install --save-dev load-grunt-tasks &lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+	&lt;span class=&quot;na&quot;&gt;sass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;sourceMap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+		&lt;span class=&quot;na&quot;&gt;dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;na&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;s1&quot;&gt;&#39;main.css&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;main.scss&#39;&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+ 
+&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;default&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;sass&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sun, 22 May 2016 14:35:23 +0800</pubDate>
+        <link>/grunt/2016/05/22/grunt.html</link>
+        <guid isPermaLink="true">/grunt/2016/05/22/grunt.html</guid>
+        
+        <category>Grunt</category>
+        
+        
+        <category>grunt</category>
+        
+      </item>
+    
+      <item>
+        <title>Git</title>
+        <description>&lt;h4 id=&quot;git--zsh-&quot;&gt;Git &amp;amp; ZSH 常用命令&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git 常用命令&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;初始化Git仓库：&lt;code class=&quot;highlighter-rouge&quot;&gt;git init&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;将文件（新添加的或者修改的）添加进暂存区：&lt;code class=&quot;highlighter-rouge&quot;&gt;git add file&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看被修改的文件状态：&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;将暂存区的文件提交到最终的分支仓库中：&lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;修改内容&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看文件的不同之处：&lt;code class=&quot;highlighter-rouge&quot;&gt;git diff&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看提交的历史纪录：&lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;查看所有的历史纪录：&lt;code class=&quot;highlighter-rouge&quot;&gt;git reflog&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;返回历史版本（回退）：&lt;code class=&quot;highlighter-rouge&quot;&gt;git reset&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;返回文件修改之前的状态：&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout - -file&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;建立与Github的远程仓库连接：&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote add origin git@github.com:Selvin11/..&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;关联本地和远程的仓库内容：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push -u origin master&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;clone远程仓库内容到本地：&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone git@github.com:Selvin11/..&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;创建新的分支并切换到该分支：&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b gh-pages&lt;/code&gt;这其实是两个步骤，首先创建分支：&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch gh-pages&lt;/code&gt;,然后是进入该分支：&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout gh-pages&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;合并新分支到master分支上：&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge gh-pages&lt;/code&gt;,默认Fast forward模式,但此模式会将分支信息丢掉，一般使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git merge --no-ff -m &quot;merge with no-ff&quot; gh-pages&lt;/code&gt;,表示禁用Fast forward模式&lt;/li&gt;
+  &lt;li&gt;删除分支：&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -d gh-pages&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;解决冲突，当不同分支提交相同文件时，但是内容不同，就会造成commit提交失败，此时需要手动解决，将两处内容重新整合成一样的，然后add,commit,用&lt;code class=&quot;highlighter-rouge&quot;&gt;git log --graph&lt;/code&gt;命令可以看到分支合并图。&lt;/li&gt;
+  &lt;li&gt;Bug分支，面对突如其来的Bug，不要慌，我们可以暂时隐藏工作区，创建Bug分支，解决之后，合并后并删除，接下来将隐藏的现实出来就行了：&lt;code class=&quot;highlighter-rouge&quot;&gt;git stash&lt;/code&gt;隐藏，&lt;code class=&quot;highlighter-rouge&quot;&gt;git stash list&lt;/code&gt;可以查看隐藏内容列表，然后采用&lt;code class=&quot;highlighter-rouge&quot;&gt;git stash pop&lt;/code&gt;来恢复隐藏的工作区，恢复的同时也将stash删除了。&lt;/li&gt;
+  &lt;li&gt;对于已经commit的分支，但未push，我们需要删除它，怎么办：&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -D filename&lt;/code&gt;,采用强制删除分支命令&lt;/li&gt;
+  &lt;li&gt;查看远程库内容：&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote&lt;/code&gt;,详细内容&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;,推送分支内容：&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin &amp;lt;name&amp;gt;&lt;/code&gt;,origin是当初建立连接时为远程库起的名字，抓取分支,从Github上clone下来的项目只有master分支，其他分支需要抓取：&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b gh-pages origin/gh-pages&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;多人协作：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;查看远程库信息，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;；本地新建的分支如果不推送到远程，对其他人就是不可见的；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从本地推送分支，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin branch-name&lt;/code&gt;，如果推送失败，先用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;抓取远程的新提交；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在本地创建和远程分支对应的分支，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b branch-name origin/branch-name&lt;/code&gt;，本地和远程分支的名称最好一致；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;建立本地分支和远程分支的关联，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git branch --set-upstream branch-name origin/branch-name&lt;/code&gt;；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;从远程抓取分支，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;，如果有冲突，要先处理冲突。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 19 May 2016 18:42:27 +0800</pubDate>
+        <link>/git/&/zsh/2016/05/19/git.html</link>
+        <guid isPermaLink="true">/git/&/zsh/2016/05/19/git.html</guid>
+        
+        <category>Git</category>
+        
+        
+        <category>Git</category>
+        
+        <category>&amp;</category>
+        
+        <category>ZSH</category>
+        
+      </item>
+    
+      <item>
+        <title>CSS3</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;CSS3&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;border-radius:top-left,top-right,bottom-right,bottom-left;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;box-shadow: X轴偏移量 Y轴偏移量 [阴影模糊半径] [阴影扩展半径] [阴影颜色] [投影方式];&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://img.mukewang.com/52e2201a0001b1e004720260.jpg&quot;&gt;border-image:&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;color：rgba(R,G,B,A);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CSS3 Gradient 分为线性渐变(linear)和径向渐变(radial)。&lt;br /&gt;
+`&lt;br /&gt;
+background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo,violet);&lt;br /&gt;
+`&lt;/li&gt;
+  &lt;li&gt;text-overflow用来设置是否使用一个省略标记（…）标示对象内文本的溢出.要实现溢出时产生省略号的效果，还须定义强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden），只有这样才能实现溢出文本显示省略号的效果:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;text-overflow:ellipsis; 
+overflow:hidden; 
+white-space:nowrap; &lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;font-face&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;@font-face {
+ font-family : 字体名称;
+ src : 字体文件在服务器上的相对或绝对路径;
+}&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;text-shadow&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;text-shadow: X-Offset Y-Offset blur color;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;background-origin:&lt;br /&gt;
+设置元素背景图片的原始起始位置,&lt;strong&gt;|表示或的意思，选其中一个参数&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;background-origin ： border-box | padding-box | content-box;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;background-clip:&lt;br /&gt;
+用来将背景图片做适当的裁剪以适应实际需要，&lt;strong&gt;|表示或的意思，选其中一个参数&lt;/strong&gt;&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;background-clip ： border-box | padding-box | content-box | no-clip;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;background-size:设置背景图片的大小，以长度值或百分比显示，还可以通过cover和contain来对图片进行伸缩，**&lt;/td&gt;
+          &lt;td&gt;表示或的意思，选其中一个参数**&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;background-size: auto | &amp;lt;长度值&amp;gt; | &amp;lt;百分比&amp;gt; | cover | contain&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;multiple backgrounds：多重背景，也就是CSS2里background的属性外加origin、clip和size组成的新background的多次叠加，缩写时为用逗号隔开的每组值；用分解写法时，如果有多个背景图片，而其他属性只有一个（例如background-repeat只有一个），表明所有背景图片应用该属性值。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;选择器：类比jquery&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;shadow&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;utf-8&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;before、after&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.box&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;relative&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;80px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.box&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;70%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;200px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#FFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.effect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;relative&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;       
+    &lt;span class=&quot;nl&quot;&gt;-webkit-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	   &lt;span class=&quot;nl&quot;&gt;-moz-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;nl&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.effect&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;::before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.effect&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;::after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+	&lt;span class=&quot;nl&quot;&gt;z-index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-moz-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-moz-border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;box effect&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;Shadow Effect &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;动画&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-webkit-transform:&lt;/p&gt;
+
+&lt;p&gt;-moz-transform:&lt;/p&gt;
+
+&lt;p&gt;transform:&lt;/p&gt;
+
+&lt;p&gt;函数：旋转函数rotate(),扭曲函数skew（），缩放函数scale（），位移函数translate（）&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;盒模型&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;CSS标准盒：&lt;/p&gt;
+
+&lt;p&gt;元素width = content+padding+border&lt;/p&gt;
+
+&lt;p&gt;元素height = content+padding+border&lt;/p&gt;
+
+&lt;p&gt;IE6盒模型：&lt;/p&gt;
+
+&lt;p&gt;元素width = contentwidth&lt;/p&gt;
+
+&lt;p&gt;元素height = contentheight&lt;/p&gt;
+
+&lt;p&gt;设置box-sizing:border-box;可以让元素在IE盒模型状态下进行布局，避免了设置padding后导致布局撑破的问题。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;outline&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;类比border&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;::before &amp;amp;&amp;amp; ::after,&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Wed, 18 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/18/css3.html</link>
+        <guid isPermaLink="true">/2016/05/18/css3.html</guid>
+        
+        <category>CSS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>float&amp;&amp;dispaly</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;float&amp;amp;&amp;amp;dispaly:inline-block&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当两个块级元素设置为diaplay:inline-blcok时，中间会有空隙，做过一些尝试之后，发现原来是因为写代码时的换行空白符，使得中间留有空隙，在网上也发现了一篇描述很详细的文章，供参考&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://sentsin.com/web/23.html&quot;&gt;display:inline-block引发的间隙思考&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 16 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/16/inline-block.html</link>
+        <guid isPermaLink="true">/2016/05/16/inline-block.html</guid>
+        
+        <category>CSS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Vmware fusion 8</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Vmware fusion 8 (虚拟机软件) Mac&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在Mac上疲于网上测试IE兼容性，遂捣鼓了一下虚拟机，亲测实用。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.vmware.com/products/fusion/fusion-evaluation.html&quot;&gt;Vmware fusion 8  Mac 官网下载即可 &lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fusion 8序列号：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;FY75A-06W1M-H85PZ-0XP7T-MZ8E8&lt;/p&gt;
+
+&lt;p&gt;ZY7TK-A3D4N-08EUZ-TQN5E-XG2TF&lt;/p&gt;
+
+&lt;p&gt;FG1MA-25Y1J-H857P-6MZZE-YZAZ6&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://news.mydrivers.com/1/440/440521.htm&quot;&gt;win10官方原版ISO下载&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/9113f81b0658e42b3314c74f.html&quot;&gt;Vmware fusion 8  Mac 安装win10&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;支持正版！～&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/11/vmware.html</link>
+        <guid isPermaLink="true">/2016/05/11/vmware.html</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title> addLoadEvent()</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;addLoadEvent():详解&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/zh592677127/article/details/8055589&quot;&gt;addLoadEvent&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;javascript
+function addLoadEvent(func){
+        var oldonload = window.onload;
+        if (typeof window.onload != &quot;function&quot;) {
+            window.onload = func;
+        }
+        else {
+            window.onload = function(){
+		if(oldonload){
+		    oldonload();
+		}
+                func();
+            }
+        }
+    }
+   &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;//先判断之前有没有通过window.onload调用函数，所以用typeof判断window.onload的类型.&lt;/p&gt;
+
+&lt;p&gt;//如没有调用，typeof window.onload != “function”返回的ture，执行window.onload = func;即window.onload先调用你的函数newFunc();&lt;/p&gt;
+
+&lt;p&gt;//反之window.onload调用了函数，那么第一句的变量oldonload的值也就是被调用的函数A()了，判断window.onload调用了函数，typeof window.onload != “function”返回的就是false;执行window.onload = function(){oldonload();func();},那么window.onload调用的就是一个匿名函数，这个匿名函数就会先调用oldonload()函数(也就是A()函数)，再调用你的newFunc()函数。　&lt;/p&gt;
+
+&lt;p&gt;addLoadEvent函数主要是完成如下的操作：&lt;/p&gt;
+
+&lt;p&gt;1、把现有的window.onload事件处理函数的值存入到oldonload中。&lt;/p&gt;
+
+&lt;p&gt;2、如果在这个处理函数上还没有绑定任何函数，就将该函数添加给它。&lt;/p&gt;
+
+&lt;p&gt;3、如果在这个处理函数上已经绑定了一些函数，就把该函数追加到现有指定的末尾。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 10 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/10/load.html</link>
+        <guid isPermaLink="true">/2016/05/10/load.html</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title> triangle and clearfix</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;关于float&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;父块&amp;amp;&amp;amp;子块，当子块含有float属性时，脱离标准文档流后，父块不再包含子块，需要进行清除浮动处理：&lt;/p&gt;
+
+&lt;p&gt;方法：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;为父块增加float属性；&lt;/li&gt;
+  &lt;li&gt;增加空div，设置clear清楚浮动；&lt;/li&gt;
+  &lt;li&gt;父块增加类，使用after或者before伪类，详情如下：&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.clearfix&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&quot;\200B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;nl&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;both&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;nc&quot;&gt;.clearfix&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;zoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;/*IE/7/6*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.admin10000.com/document/6259.html&quot;&gt;clearfix清除浮动进化史&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;鼠标全过程：&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.bkjia.com/Javascript/872310.html&quot;&gt;:link,:visited,:focus,:hover,:active详解&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;:link -&amp;gt; :visited -&amp;gt; :focus -&amp;gt; :hover -&amp;gt; :active&lt;/p&gt;
+</description>
+        <pubDate>Sat, 07 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/07/triange-clearfix.html</link>
+        <guid isPermaLink="true">/2016/05/07/triange-clearfix.html</guid>
+        
+        <category>CSS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>About Shell</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;About zsh 、vim、sublime&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;由于近段时间一直在着手小轮子制造，但心中一直对命令行和vim不死心啊，对于那极速的敲击，真的令我沉醉。苦于对基础（HTML、CSS、JavaScript）的磨练，我忍了很久了，但终于在今天，花了一些时间，配置了一下属于自己的工作流，谨此留以纪念。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于shell－－：&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;阅读此篇文章之后，获益匪浅，进行了终端的配置后，感觉快快哒～&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于vim－－：&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;此篇文章是对vim进行深入浅出的讲解和配套练习，不出半月，坚持练习，终会独孤求vim。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;关于sublime－－&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;在练就神功之前，我先把我性感的sublime好好把玩一下哈，设置之后，配合命令行，随叫随到，任逍遥～&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Selvin11/selvin.github.io/gh-pages/img/%20shell.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 May 2016 22:00:00 +0800</pubDate>
+        <link>/2016/05/02/about-zsh.html</link>
+        <guid isPermaLink="true">/2016/05/02/about-zsh.html</guid>
+        
+        <category>Shell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>What is JavaScript DOM</title>
+        <description>&lt;p&gt;文档中每个元素都是对象，文档是由节点构成的集合；&lt;/p&gt;
+
+&lt;p&gt;有很多抽象、绕口、相似的东东，在这里做个自己理解的笔记。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOM到底是什么？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​    &lt;strong&gt;将文档表示为一棵树&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;网页文档➖转换为文档对象（API）➖调用对象属性和方法➖JS操作&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DOM方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​       get…  使用时，一般会同时进行变量声明，减少后续DOM全局搜索次数，提升性能。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;对象➕方法➕参数&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对象（object）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​       属性（property）&amp;amp;方法（method）&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;用户定义对象（user-defined-object）&amp;amp;   内建对象（native object）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;内建对象：Array 、Math、Date…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;宿主对象：由浏览器提供（host object），Form、Image、Element还有document对象、window对象&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;节点（node）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;​       节点有父兄子的关系（纵向结构），也有前后顺序关系（横向结构）&lt;/p&gt;
+
+&lt;p&gt;​       属性（attribute）和方法（method）&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;id属性就是一个挂钩，一头连接着文档里某个元素，另一头连着CSS样式表的某个样式，DOM也可以使用这种挂钩。id只在JS中，一样可以被CSS使用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;​       getAtttibute&amp;amp;setAttribute均为DOM函数（方法），但都不属于document对象，无法被其调用，只能&lt;strong&gt;通过元素节点对象&lt;/strong&gt;调用！（因此首要是用get方法获取元素节点）&lt;/p&gt;
+
+&lt;p&gt;​       object.setAttribute（attribute , value）,创建属性名，并设置属性名对应的属性值&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“名值对”这个概念一直在脑海里，属性名和属性值，你找什么，无论怎样都会返回你一个值。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;strong&gt;document为浏览器提供的对象，get系列为DOM提供的方法，却是document对象特有的函数。这句话怎么理解？&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;&lt;strong&gt;document能够使用的函数都是特殊的，get就是其中之一。&lt;/strong&gt;&lt;/p&gt;
+
+      &lt;p&gt;&lt;strong&gt;除了get方法，还有createElement(node节点名)、creatTextNode(text文本内容)&lt;/strong&gt;&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;函数＋（）之后就会立即执行&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;封装函数之后，还得使用它，这就需要使用事件处理函数调用了&lt;/p&gt;
+
+    &lt;p&gt;怎么理解，函数写好后，就像锤子造好了，钉子、板子放那里了，你得用锤子敲钉子，才能造房子啊。这里的敲击就是事件，说白了，就是使用锤子的场景（诱因），也就是函数对应锤子，事件处理函数对应敲击事件。&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;事件处理函数的机制，一旦事件发生，对应的代码就会执行，之后会反馈一个布尔值，这个值又会返回事件处理函数，告诉它能做还是不能做，true就开搞，false就算了。&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;this到底是什么？&lt;/p&gt;
+
+    &lt;p&gt;唉，前面右手第三个，对，就说你呢。&lt;/p&gt;
+
+    &lt;p&gt;this就是这个你。&lt;/p&gt;
+
+    &lt;p&gt;方便快捷的进行对象间的切换。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;childNodes属性是什么？（元素和元素节点是一个概念）&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;它可以用来获取任何一个元素（节点）的&lt;strong&gt;所有子元素&lt;/strong&gt;节点（所有类型的节点），这个值是一个数组。(文档是由节点构成的，空格和换行符都是节点)&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;nodeType属性&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;每个节点都有的属性，它对应的有用属性值一般为3个（1，2，3），分别对应元素节点，属性节点，文本节点，根据返回的属性值，我们可以知道这个节点到底是什么节点。&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;nodeValue属性&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;得到或设置节点属性对应的值&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;element.childNodes[i].nadeValue(得到节点属性值)；&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;当声明变量之后，就可以改变其值&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;检查与遍历&lt;/p&gt;
+
+    &lt;p&gt;检查文档中是否存在我们要找寻的，以免崩坏整个网站，遍历是为了找到所有符合我们寻找条件的，并形成一个数组。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;for()之后，得到elment[i]的数组，continue是指：在当前循环中立即跳到下一次循环，不再继续执行本次循环的后续语句&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DOM属性和方法&lt;/p&gt;
+
+    &lt;p&gt;parentNode、lastChild、nextSibling…都是属性；&lt;/p&gt;
+
+    &lt;p&gt;appendChild、inserBefore…都是方法&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;将新创建的元素节点插入文档中，有两种方式：&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;1.用appendChlid方法，使其成为现有文档中某个元素的子元素；&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.使用inserBefore方法，直接插入现有文档中某个元素之前；（或使用自创inserAfer方法，插入之后）&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;CSS－DOM&lt;/p&gt;
+
+    &lt;p&gt;DOM只能获取HTML内部的style样式，外链的样式无法获取，但是可以用DOM设置style样式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;if(something != null)与if(something)完全等价。&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;if(something = null)与if(!something)完全等价。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;JavaScript String对象中的indexOf方法&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;stringObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;indexOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;searchvalue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fromindex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;该方法将从头到尾地检索字符串 stringObject，看它是否含有子串 searchvalue。开始检索的位置在字符串的 fromindex 处或字符串的开头（没有指定 fromindex 时）。如果找到一个 searchvalue，则返回 searchvalue 的第一次出现的位置。stringObject 中的字符位置是从 0 开始的。&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;注释：如果要检索的字符串值没有出现，则该方法返回 -1。&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 11 Apr 2016 18:00:00 +0800</pubDate>
+        <link>/2016/04/11/what-is-jsdom.html</link>
+        <guid isPermaLink="true">/2016/04/11/what-is-jsdom.html</guid>
+        
+        <category>JavaScript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Do more</title>
+        <description>&lt;h2 id=&quot;jqueryjavascript&quot;&gt;jQuery&amp;amp;JavaScript&lt;/h2&gt;
+
+&lt;p&gt;这段时间一直在学习js，期间起伏跌宕，说实话，对于一个电脑小白来说，就算被大家说是很简单的语言，也让我头疼不已，不过还好，已经走上坡路了，主要还是得不停的看,敲，想，这算是一遍激励自己的短文吧＝。＝&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;学习曲线&lt;/h2&gt;
+
+&lt;p&gt;js在&lt;a href=&quot;http://www.imooc.com/&quot;&gt;慕课网&lt;/a&gt;,&lt;a href=&quot;http://www.w3school.com.cn/&quot;&gt;w3school&lt;/a&gt;上进行了入门学习，了解了DOM/JavaScript,对象/方法/函数/封装/…等等，都一个个敲了出来，但真的是很抽象啊！脑洞大找到了存在感，每每遇到抽象的难以理解时，就不断联想，想一个最容易理解的来具化抽象。比如上面的方法/函数/封装,说白了就是数理化的公式嘛，这样一想是那么回事呢～&lt;/p&gt;
+
+&lt;p&gt;但还是一直在打基础，最近学习书目有《javascriptDOM编程艺术》、《锋利的jquery》,每每攻克一个问题，都觉得很开心，这就是兴趣吧，希望接下来自己能更加全身心的投入学习。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;项目&lt;/h2&gt;
+&lt;p&gt;基础打牢，着手创作啦！&lt;br /&gt;
+Try My Best!!!&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 30 Mar 2016 20:00:00 +0800</pubDate>
+        <link>/2016/03/30/tag.html</link>
+        <guid isPermaLink="true">/2016/03/30/tag.html</guid>
+        
+        <category>jquery</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

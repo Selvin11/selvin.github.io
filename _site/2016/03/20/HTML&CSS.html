@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <!-- 使IE按照最新引擎渲染网页 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适配处理 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- _config.yml关键字描述 ，SEO优化处理 -->
+  <meta name="keyword" content="前端 博客 分享 小白">
+  <!-- _config.yml介绍描述 -->
+  <meta name="description" content="前情概要">
+  <title>入门HTML&CSS</title>
+  <!-- 引入网站icon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- 引入reset样式 -->
+  <!-- <link rel="stylesheet" href="/css/reset.css"> -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <!-- 引入 bootstrap-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- 引入  font-awesome-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- 引入代码高亮样式 -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- main.css -->
+  <link rel="stylesheet" href="/css/selvin.css">
+  <!-- SEO,防止URL不同，但是内容相同的页面被搜索引擎多次收录，导致错误的将网页降权 -->
+  <link rel="canonical" href="/2016/03/20/HTML&CSS.html">
+  <!-- Rss -->
+  <link rel="alternate" type="application/rss+xml" title="Selvin Blog" href="/feed.xml">
+  <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+        <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+  <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- selvin blog head -->
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- 头部logo,使用Jekyll全局变量site.title -->
+      <!-- container容器 -->
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" id="navBtn" class="navbar-toggle" data-toggle="collapse" 
+               data-target="#example-navbar-collapse">
+               <span class="sr-only">toggle nav</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">Selvin Blog</a>
+         </div>
+         <!-- 右侧分栏 -->
+         <div class="collapse navbar-collapse navbar-right" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">   
+               <li><a href="/about.html">About</a></li>
+               <li><a href="/contact.html">Contact</a></li>
+               <li><a href="/tags.html">Tags</a></li>
+            </ul>
+         </div>
+      </div>
+</nav>
+
+
+
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <!-- 微数据 -->
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <h1 class="post-title" itemprop="name headline">入门HTML&CSS</h1>
+          <p class="post-meta">
+            <time datetime="2016-03-20T21:00:00+08:00" itemprop="datePublished">Mar 20, 2016
+            </time>
+             • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Gsw</span></span></p>
+        </header>
+        <!-- 内容区域 -->
+        <div class="post-content" itemprop="articleBody">
+          <h2 id="section">前情概要</h2>
+
+<p>当完成了一个copy blog之后，开始专心投入到html/css/javascript的学习中了，<br />
+html的学习是相当顺利的，在编辑器sublime和chorme的配合下，已经开始临摹从<br />
+易到难的网页了。</p>
+
+<h2 id="section-1">电脑小白的人话</h2>
+
+<p>其实上面这句话相对于程序员来说是非常非常非常简单明了的，但是对于零基础的小白<br />
+而言，其实根本不明所以！这是真的，懂这句话的才是真小白。</p>
+
+<p>好了，现在唠嗑一下，编辑器和浏览器配合学习html／css是怎么回事。。。</p>
+
+<p>首先我们随便打开一个网页，点击右键，选择查看源代码，这时候，一个html的文档<br />
+就呈现在我们眼前了，说白了这就是这个网页的所有内容。而编辑器就是一个写这些<br />
+内容的容器，编辑器有很多，这里我选择了sublime，据说webstorm非常好用＝。＝<br />
+关于sublime的介绍和使用参照：<br />
+<a href="http://www.imooc.com/learn/40">慕课网</a></p>
+
+<p>明白了编辑器之后，同样你可以选择继续在慕课网上看视频进行学习，这个时候相信你<br />
+应该明白什么叫边敲代码边视频了～</p>
+
+<p>在有一定认知之后，推荐你看一下国外一位大神的教学视频，里面的课程很直观<br />
+<a href="http://www.iplaysoft.com/30days-to-learn-html-css.html">30 Days to Learn HTML &amp; CSS</a><br />
+别听名字是30天学会，绝对和某培训班月入上万，靠谱N多倍～</p>
+
+<p>这就是入门学习的所有准备和基础阶段啦！</p>
+
+<h2 id="section-2">继续敲代码去咯</h2>
+
+        </div>
+      </article>
+    </div>
+    <div class="col-lg-3">
+          <!-- 左侧sidebar -->
+          <!-- Featured Tags -->
+          
+          <section>
+              <!-- no hr -->
+              <h5><a href="/tags/">FEATURED TAGS</a></h5>
+              <!-- 标签云 -->
+          <div id='tag_cloud' class="tags">
+            
+            <a href="#前端之路" title="前端之路" rel="2">前端之路</a>
+            
+            <a href="#jquery" title="jquery" rel="1">jquery</a>
+            
+            <a href="#JavaScript" title="JavaScript" rel="3">JavaScript</a>
+            
+            <a href="#Shell" title="Shell" rel="1">Shell</a>
+            
+            <a href="#CSS" title="CSS" rel="3">CSS</a>
+            
+            <a href="#Git" title="Git" rel="1">Git</a>
+            
+            <a href="#Grunt" title="Grunt" rel="1">Grunt</a>
+            
+          </div>
+          </section>
+          
+        <!-- Short About -->
+        <section class="visible-md visible-lg">
+            <hr><h5><a href="">ABOUT ME</a></h5>
+            <div class="short-about">
+                
+                    <img src="http://selvin11.github.io/selvin.github.io/img/dog.jpg" />
+                
+                
+                    <p>做一个浪漫的程序猿，带上我美丽的小老婆一起飞。</p>
+                
+                <!-- SNS Link -->
+                <ul class="list-inline">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/selvin11">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+              <!-- Friends Blog -->
+              
+              <hr>
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                  
+                      <li><a href="http://selvin11.github.io/selvin.github.io/">Gsw's Blog</a></li>
+                  
+                      <li><a href="#">Jessica</a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+              </ul>
+              
+        </div>
+  </div>
+</div>
+
+
+    <!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/selvin11">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted text-center">
+                    Copyright &copy; Selvin Blog 2016
+                    <br>
+                    Theme by <a href="https://github.com/Selvin11/selvin.github.io">Selvin</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="http://ghbtns.com/github-btn.html?user=Selvin11&repo=selvin.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/selvin.js"></script>
+
+  </body>
+
+</html>

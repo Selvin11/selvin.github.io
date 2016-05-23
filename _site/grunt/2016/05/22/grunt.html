@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <!-- 使IE按照最新引擎渲染网页 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适配处理 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- _config.yml关键字描述 ，SEO优化处理 -->
+  <meta name="keyword" content="前端 博客 分享 小白">
+  <!-- _config.yml介绍描述 -->
+  <meta name="description" content="Grunt 常用插件以及Gruntfile.js配置方法">
+  <title>Grunt</title>
+  <!-- 引入网站icon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- 引入reset样式 -->
+  <!-- <link rel="stylesheet" href="/css/reset.css"> -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <!-- 引入 bootstrap-->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- 引入  font-awesome-->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- 引入代码高亮样式 -->
+  <link rel="stylesheet" href="/css/syntax.css">
+  <!-- main.css -->
+  <link rel="stylesheet" href="/css/selvin.css">
+  <!-- SEO,防止URL不同，但是内容相同的页面被搜索引擎多次收录，导致错误的将网页降权 -->
+  <link rel="canonical" href="/grunt/2016/05/22/grunt.html">
+  <!-- Rss -->
+  <link rel="alternate" type="application/rss+xml" title="Selvin Blog" href="/feed.xml">
+  <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+        <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+  <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- selvin blog head -->
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- 头部logo,使用Jekyll全局变量site.title -->
+      <!-- container容器 -->
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" id="navBtn" class="navbar-toggle" data-toggle="collapse" 
+               data-target="#example-navbar-collapse">
+               <span class="sr-only">toggle nav</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">Selvin Blog</a>
+         </div>
+         <!-- 右侧分栏 -->
+         <div class="collapse navbar-collapse navbar-right" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">   
+               <li><a href="/about.html">About</a></li>
+               <li><a href="/contact.html">Contact</a></li>
+               <li><a href="/tags.html">Tags</a></li>
+            </ul>
+         </div>
+      </div>
+</nav>
+
+
+
+        <div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <!-- 微数据 -->
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+          <h1 class="post-title" itemprop="name headline">Grunt</h1>
+          <p class="post-meta">
+            <time datetime="2016-05-22T14:35:23+08:00" itemprop="datePublished">May 22, 2016
+            </time>
+            </p>
+        </header>
+        <!-- 内容区域 -->
+        <div class="post-content" itemprop="articleBody">
+          <h4 id="grunt-gruntfilejs">Grunt 常用插件以及Gruntfile.js配置方法</h4>
+
+<ul>
+  <li>grunt-contrib-clean , 快速清除目录及文件，命令`grunt clean</li>
+</ul>
+
+<p><code class="highlighter-rouge">npm install grunt-contrib-clean --save-dev</code></p>
+
+<p>files 是grunt公共属性，src 是需要删除的文件夹<br />
+执行gurnt clean 则删除 output 文件夹</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+        <span class="na">pkg</span><span class="p">:</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">readJSON</span><span class="p">(</span><span class="s1">'package.json'</span><span class="p">),</span>
+        <span class="na">clean</span><span class="p">:</span> <span class="p">{</span>
+  			<span class="na">folder</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/'</span><span class="p">],</span>
+ 			<span class="na">folder_v2</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/**'</span><span class="p">],</span>
+  			<span class="na">contents</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/*'</span><span class="p">],</span>
+  			<span class="na">subfolders</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/*/'</span><span class="p">],</span>
+  			<span class="na">css</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/*.css'</span><span class="p">],</span>
+  			<span class="na">all_css</span><span class="p">:</span> <span class="p">[</span><span class="s1">'path/to/dir/**/*.css'</span><span class="p">]</span>
+<span class="p">}</span>
+    <span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-contrib-clean'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+<p>详情请参照npm官方介绍：<a href="https://www.npmjs.com/package/grunt-contrib-clean">grunt-contrib-clean</a></p>
+
+<ul>
+  <li>grunt-contrib-watch 实现实时监控及自动化流程</li>
+</ul>
+
+<p><code class="highlighter-rouge">npm install grunt-contrib-watch --save-dev
+</code><br />
+example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">watch</span><span class="err">:</span> <span class="p">{</span>
+  <span class="nl">scripts</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">files</span><span class="p">:</span> <span class="p">[</span><span class="s1">'**/*.js'</span><span class="p">],</span>
+    <span class="nx">tasks</span><span class="err">:</span> <span class="p">[</span><span class="s1">'jshint'</span><span class="p">],</span>
+    <span class="nx">options</span><span class="err">:</span> <span class="p">{</span>
+      <span class="nl">spawn</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">},</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>grunt-sass sass</li>
+</ul>
+
+<p><code class="highlighter-rouge">npm install --save-dev grunt-sass</code></p>
+
+<p>实例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">require</span><span class="p">(</span><span class="s1">'load-grunt-tasks'</span><span class="p">)(</span><span class="nx">grunt</span><span class="p">);</span> <span class="c1">// npm install --save-dev load-grunt-tasks </span>
+ 
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+	<span class="na">sass</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">sourceMap</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">},</span>
+		<span class="na">dist</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">files</span><span class="p">:</span> <span class="p">{</span>
+				<span class="s1">'main.css'</span><span class="p">:</span> <span class="s1">'main.scss'</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">});</span>
+ 
+<span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">'default'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'sass'</span><span class="p">]);</span>
+</code></pre>
+</div>
+
+
+        </div>
+      </article>
+    </div>
+    <div class="col-lg-3">
+          <!-- 左侧sidebar -->
+          <!-- Featured Tags -->
+          
+          <section>
+              <!-- no hr -->
+              <h5><a href="/tags/">FEATURED TAGS</a></h5>
+              <!-- 标签云 -->
+          <div id='tag_cloud' class="tags">
+            
+            <a href="#前端之路" title="前端之路" rel="2">前端之路</a>
+            
+            <a href="#jquery" title="jquery" rel="1">jquery</a>
+            
+            <a href="#JavaScript" title="JavaScript" rel="3">JavaScript</a>
+            
+            <a href="#Shell" title="Shell" rel="1">Shell</a>
+            
+            <a href="#CSS" title="CSS" rel="3">CSS</a>
+            
+            <a href="#Git" title="Git" rel="1">Git</a>
+            
+            <a href="#Grunt" title="Grunt" rel="1">Grunt</a>
+            
+          </div>
+          </section>
+          
+        <!-- Short About -->
+        <section class="visible-md visible-lg">
+            <hr><h5><a href="">ABOUT ME</a></h5>
+            <div class="short-about">
+                
+                    <img src="http://selvin11.github.io/selvin.github.io/img/dog.jpg" />
+                
+                
+                    <p>做一个浪漫的程序猿，带上我美丽的小老婆一起飞。</p>
+                
+                <!-- SNS Link -->
+                <ul class="list-inline">
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/selvin11">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+              <!-- Friends Blog -->
+              
+              <hr>
+              <h5>FRIENDS</h5>
+              <ul class="list-inline">
+                  
+                      <li><a href="http://selvin11.github.io/selvin.github.io/">Gsw's Blog</a></li>
+                  
+                      <li><a href="#">Jessica</a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+                      <li><a href="#"></a></li>
+                  
+              </ul>
+              
+        </div>
+  </div>
+</div>
+
+
+    <!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/too-zi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="http://weibo.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/codeselvin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/selvin11">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted text-center">
+                    Copyright &copy; Selvin Blog 2016
+                    <br>
+                    Theme by <a href="https://github.com/Selvin11/selvin.github.io">Selvin</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="http://ghbtns.com/github-btn.html?user=Selvin11&repo=selvin.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/selvin.js"></script>
+
+  </body>
+
+</html>
