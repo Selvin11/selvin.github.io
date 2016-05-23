@@ -1,0 +1,141 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-lg-offset-1">
+      <!-- 左侧sidebar -->
+      <!-- Featured Tags -->
+	    {% if site.featured-tags %}
+	    <section>
+	        <!-- no hr -->
+	        <h5><a href="/tags/">FEATURED TAGS</a></h5>
+	        <!-- 标签云 -->
+			<div id='tag_cloud' class="tags">
+				{% for tag in site.tags %}
+				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
+				{% endfor %}
+			</div>
+	    </section>
+	    {% endif %}
+		<!-- Short About -->
+		<section class="visible-md visible-lg">
+		    <hr><h5><a href="{{/about/ | prepend: site.baseurl }}">ABOUT ME</a></h5>
+		    <div class="short-about">
+		        {% if site.sidebar-avatar %}
+		            <img src="{{site.sidebar-avatar}}" />
+		        {% endif %}
+		        {% if site.sidebar-about-description %}
+		            <p>{{site.sidebar-about-description}}</p>
+		        {% endif %}
+		        <!-- SNS Link -->
+		        <ul class="list-inline">
+		            {% if site.RSS %}
+		            <li>
+		                <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		            {% if site.twitter_username %}
+		            <li>
+		                <a href="https://twitter.com/{{ site.twitter_username }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		            {% if site.zhihu_username %}
+		            <li>
+		                <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa  fa-stack-1x fa-inverse">知</i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		            {% if site.weibo_username %}
+		            <li>
+		                <a target="_blank" href="http://weibo.com/{{ site.weibo_username }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		            {% if site.facebook_username %}
+		            <li>
+		                <a target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		            {% if site.github_username %}
+		            <li>
+		                <a target="_blank" href="https://github.com/{{ site.github_username }}">
+		                    <span class="fa-stack fa-lg">
+		                        <i class="fa fa-circle fa-stack-2x"></i>
+		                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+		                    </span>
+		                </a>
+		            </li>
+		            {% endif %}
+		        </ul>
+		    </div>
+		</section>
+	        <!-- Friends Blog -->
+	        {% if site.friends %}
+	        <hr>
+	        <h5>FRIENDS</h5>
+	        <ul class="list-inline">
+	            {% for friend in site.friends %}
+	                <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+	            {% endfor %}
+	        </ul>
+	        {% endif %}
+    </div>
+      <!-- right -->
+    <div class="col-lg-8">
+      <ul class="post-list">
+      {% for post in paginator.posts %}
+      <li>
+      <h2>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <!-- 显示副标题内容 -->
+        {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+      </h2>
+      <p>{{ post.content | strip_html | truncate:200 }}</p>
+      <span class="post-date">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</span>
+      </li>
+      {% endfor %}
+      </ul>
+      <!-- 分页设置 -->
+      {% if paginator.total_pages > 1 %}
+      <ul class="pager">
+          {% if paginator.previous_page %}
+          <li class="previous">
+              <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+          </li>
+          {% endif %}
+          {% if paginator.next_page %}
+          <li class="next">
+              <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+          </li>
+          {% endif %}
+      </ul>
+      {% endif %}
+      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    </div>
+  </div>
+</div>
+

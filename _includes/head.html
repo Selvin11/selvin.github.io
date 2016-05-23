@@ -1,0 +1,37 @@
+<head>
+  <meta charset="utf-8">
+  <!-- 使IE按照最新引擎渲染网页 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 移动端适配处理 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- _config.yml关键字描述 ，SEO优化处理 -->
+  <meta name="keyword" content="{{ site.keyword }}">
+  <!-- _config.yml介绍描述 -->
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <!-- 引入网站icon -->
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <!-- 引入reset样式 -->
+  <!-- <link rel="stylesheet" href="{{ "/css/reset.css" | prepend: site.baseurl }}"> -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/reset.css">
+  <!-- 引入 bootstrap-->
+  <link rel="stylesheet" href="{{ "/css/bootstrap.css" | prepend: site.baseurl }}">
+  <!-- 引入  font-awesome-->
+  <link rel="stylesheet" href="{{ "/css/font-awesome.css" | prepend: site.baseurl }}">
+  <!-- 引入代码高亮样式 -->
+  <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
+  <!-- main.css -->
+  <link rel="stylesheet" href="{{ "/css/selvin.css" | prepend: site.baseurl }}">
+  <!-- SEO,防止URL不同，但是内容相同的页面被搜索引擎多次收录，导致错误的将网页降权 -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <!-- Rss -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+        <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+  <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- selvin blog head -->
