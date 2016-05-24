@@ -15,3 +15,19 @@ footer{
 		margin-bottom: 20px;
 	}
 }
+a.tag{
+	display: block;
+	float: left;
+	color: #777;
+	background-color: #e7e7e7;
+	text-decoration: none;
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+}
+#example-navbar-collapse li:hover{
+	background-color:#3a3e4a;
+	a{
+		color: #fff;
+	}
+}
