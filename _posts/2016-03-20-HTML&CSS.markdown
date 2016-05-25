@@ -3,8 +3,6 @@ layout:     post
 title:      "入门HTML&CSS"
 subtitle:   " \"Just do it.\""
 date:       2016-03-20 13:00:00
-author:     "Gsw"
-header-img: "img/post2.jpg"
 tags:
     -  前端之路 
 ---

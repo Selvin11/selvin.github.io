@@ -3,8 +3,6 @@ layout:     post
 title:      "float&&dispaly"
 subtitle:   ""
 date:       2016-05-16 14:00:00
-author:     "Gsw"
-header-img: "img/post4.jpg"
 tags:
     - CSS
 ---

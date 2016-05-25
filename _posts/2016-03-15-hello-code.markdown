@@ -3,8 +3,6 @@ layout:     post
 title:      "Welcome to Gsw's Blog"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2016-03-15 20:00:00
-author:     "Gsw"
-header-img: "img/post-bg-2015.jpg"
 tags:
     - 前端之路 
 ---

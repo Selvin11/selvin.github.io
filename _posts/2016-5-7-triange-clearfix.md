@@ -3,8 +3,6 @@ layout:     post
 title:      " triangle and clearfix"
 subtitle:   " \"clear both\""
 date:       2016-05-7 14:00:00
-author:     "Gsw"
-header-img: "img/post1.jpg"
 tags:
     - CSS
 ---

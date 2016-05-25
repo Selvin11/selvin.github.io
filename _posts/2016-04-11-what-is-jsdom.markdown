@@ -3,8 +3,6 @@ layout:     post
 title:      "What is JavaScript DOM"
 subtitle:   " \"note.\""
 date:       2016-04-11 10:00:00
-author:     "Gsw"
-header-img: "img/post2.jpg"
 tags:
     - JavaScript 
 ---

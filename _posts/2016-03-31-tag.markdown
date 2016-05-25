@@ -2,9 +2,6 @@
 layout:     post
 title:      "Do more"
 subtitle:   " \"try best.\""
-date:       2016-03-30 12:00:00
-author:     "Gsw"
-header-img: "img/post4.jpg"
 tags:
     - jquery 
 ---
