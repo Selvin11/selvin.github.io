@@ -13,7 +13,7 @@ layout: default
           <!-- 标签云 -->
       <div id='tag_cloud' class="tags clearfix">
         {% for tag in site.tags %}
-        <a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" class="tag">{{ tag[0] }}</a>
+        <a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" class="tag">{{ tag[0] }}</a>
         {% endfor %}
       </div>
       </section>
@@ -121,24 +121,40 @@ layout: default
       {% endfor %}
       </ul>
 
-      <!-- 分页设置 -->
-      {% if paginator.total_pages > 1 %}
-      <ul class="pager">
-          {% if paginator.previous_page %}
-          <li class="previous">
-              <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-          </li>
-          {% endif %}
-          {% if paginator.next_page %}
-          <li class="next">
-              <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-          </li>
-          {% endif %}
-      </ul>
-      {% endif %}
-      </br></br>
+      </br>
       <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
     </div>
   </div>
 </div>
+<!-- 分页设置 -->
+<div class="container"  id="pagination">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-3">
+      {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        {% else %}
+          <span>&laquo; Prev</span>
+        {% endif %}
 
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == paginator.page %}
+            <em>{{ page }}</em>
+          {% elsif page == 1 %}
+            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        {% else %}
+          <span>Next &raquo;</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -30,17 +30,28 @@ highlighter: rouge
 # 默认路径
 source:   .
 destination: ./_site
+
 # 启用Github扩展的markdown语法
 markdown: kramdown
 kramdown:
   input: GFM
+
+
+
 # 分页
 paginate: 5
 # 插件管理（paginate显示部分文本内容） This will require each of these gems automatically.
 gems: [jekyll-paginate]
+
 # tags
 featured-tags: true
 featured-condition-size: 1 
+
+# Duoshuo settings
+duoshuo_username: codeselvin
+# Share component is depend on Comment so we can NOT use share only.
+duoshuo_share: true  
+
 # friends blog
 friends: [
     {

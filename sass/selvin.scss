@@ -2,11 +2,12 @@
 	width:960px;
 	margin:0 auto;
 }
-
 footer{
 	margin-top:100px;
 }
-
+#footer-icon{
+  font-size:20px;
+}
 .short-about{
 	img{
 		width: 80%;
@@ -30,4 +31,11 @@ a.tag{
 	a{
 		color: #fff;
 	}
+}
+#pagination{
+  font-size: 18px;
+  text-align:center;
+}
+#pagination a,#pagination em{
+  margin-left:30px;
 }
