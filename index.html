@@ -9,11 +9,11 @@ layout: default
       {% if site.featured-tags %}
       <section>
           <!-- no hr -->
-          <h5><a href="{{/tags/ | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
+          <h5><a href="{{ site.baseurl }}/tags">FEATURED TAGS</a></h5>
           <!-- 标签云 -->
       <div id='tag_cloud' class="tags clearfix">
         {% for tag in site.tags %}
-        <a href="{{ site.baseurl }}/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" class="tag">{{ tag[0] }}</a>
+        <a href="{{ site.baseurl }}/tags.html/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}" class="tag">{{ tag[0] }}</a>
         {% endfor %}
       </div>
       </section>
