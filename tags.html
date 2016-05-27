@@ -15,9 +15,9 @@ layout: default
             <!-- 标签列表 -->
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
-			  	<a class="fa fa-tag listing-seperator" name="{{ tag[0] }}">
+			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
                     <span class="tag-text">{{ tag[0] }}</span>
-                </a>
+                </span>
 				{% for post in tag[1] %}
 				 <div class="post-preview">
 				    <a href="{{ post.url | prepend: site.baseurl }}">

@@ -23,6 +23,7 @@ sidebar-about-description: "做一个浪漫的程序猿，带上我美丽的小�
 sidebar-avatar:  'http://selvin11.github.io/selvin.github.io/img/dog.jpg'    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Build settings
+permalink: pretty
 # 设置不解析的文件类
 exclude: ["sass","node_modules","Gruntfile.js","package.json","README.md"]
 # 代码高亮设置
