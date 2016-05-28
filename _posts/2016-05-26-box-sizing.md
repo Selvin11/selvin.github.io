@@ -4,7 +4,7 @@ title:  "盒模型"
 date:   2016-05-26 14:35:23 +0800
 tags: CSS
 ---
-###### 盒模型之防止盒撑破
+#### 盒模型之防止盒撑破
 
 
 对于width=100%;
@@ -23,3 +23,4 @@ tags: CSS
   width: -moz-calc(100% - (border+padding));
   width: -webkit-calc(100% - (border+padding));
   width: calc(100% - (border+padding));
+```
