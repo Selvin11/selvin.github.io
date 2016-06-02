@@ -63,6 +63,10 @@ duoshuo_username: codeselvin
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true  
 
+
+# Baidu Analytics
+ba_track_id: 9d5d43b43551e00b5bdd6a7027e31997
+
 # friends blog
 friends: [
     {
