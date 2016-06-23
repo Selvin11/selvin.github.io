@@ -1,4 +1,3 @@
-
 $(function() {
     var MQL = 1170;
     var nav = $("#nav");
