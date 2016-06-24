@@ -3,6 +3,28 @@ body {
   background-color:rgb(250, 250, 250);
   color:rgb(64, 64, 64);
 }
+a.post-link:link,
+.post-preview a{
+  text-decoration:none;
+}
+.post-preview a h2,
+.post-preview a h3{
+  display:inline-block;
+}
+.post-preview a h2{
+  margin-right:10px;
+  font-size:20px;
+}
+.post-preview a h3{
+  font-size:14px;
+  color:#666;
+  cursor:none;
+}
+a.post-link:hover,
+h2.post-title:hover{
+  color:#E91E63;
+}
+
 .wrap {
   width: 960px;
   margin: 0 auto; }
@@ -132,7 +154,6 @@ a.tag {
   text-decoration:none;
   background-color:#eee;
 }
-
 
 .fa-html5{
   color:#e88a3e;
