@@ -7,7 +7,7 @@ tags:
     -  前端之路 
 ---
 
-## 前情概要
+#### 前情概要
 
 当完成了一个copy blog之后，开始专心投入到html/css/javascript的学习中了，
 html的学习是相当顺利的，在编辑器sublime和chorme的配合下，已经开始临摹从

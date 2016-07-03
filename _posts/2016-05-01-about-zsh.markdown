@@ -6,7 +6,7 @@ date:       2016-05-02 14:00:00
 tags:
     - Shell
 ---
->  About zsh 、vim、sublime
+####  About zsh 、vim、sublime
 
 由于近段时间一直在着手小轮子制造，但心中一直对命令行和vim不死心啊，对于那极速的敲击，真的令我沉醉。苦于对基础（HTML、CSS、JavaScript）的磨练，我忍了很久了，但终于在今天，花了一些时间，配置了一下属于自己的工作流，谨此留以纪念。
 
