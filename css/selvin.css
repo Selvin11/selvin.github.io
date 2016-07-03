@@ -28,10 +28,10 @@ a.post-link:hover,
 h2.post-title:hover{
   color:#E91E63;
 }
-
-.wrap {
-  width: 960px;
-  margin: 0 auto; }
+.textright{
+  margin-top:50px;
+  margin-bottom:200px;
+}
 #nav{
   opacity:1;
   background-color:rgba(255, 255, 255, .9);
