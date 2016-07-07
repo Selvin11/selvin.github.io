@@ -145,7 +145,7 @@ layout: default
               {% for page in (1..paginator.total_pages) %}
             <li>
                 {% if page == paginator.page %}
-                  <a>{{ page }}</a>
+                  <a class="done">{{ page }}</a>
             </li>
             <li>
                 {% elsif page == 1 %}

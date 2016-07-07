@@ -92,6 +92,14 @@ a.tag {
   width:200px;
 
 }
+/**
+ * 分页选中样式设置 paginate
+ */
+.pagination li a.done{
+  color:#fff;
+  background-color:#337ab7;
+  border-color:#337ab7;
+}
 /* 作品列表 */
 #portfolio{
   margin:30px auto;
@@ -184,3 +192,59 @@ a.tag {
   background-color: #d9edf7;
   text-align:center;
 }
+.more a{
+  text-decoration:none;
+}
+.more a:link,
+.more a:hover{
+  color:#E91E63;
+}
+/**
+ * about page
+ */
+.head{
+  width:100%;
+  padding:30px 45px;
+  background-color:#333;
+}
+.head img{
+  float:left;
+  width:130px;
+  height:130px;
+}
+.intro-list{
+  float:left;
+  padding-left:16px;
+}
+.intro-list i,
+.intro-list a{
+  font-size:18px;
+  color:#fff;
+}
+.intro-list i{
+  width:28px;
+}
+.me{
+  float:right;
+  text-align:center;
+  color:#fff;
+}
+.me h1,
+.me h2{
+  margin:0;
+}
+.me h1{
+  font-size:72px;
+}
+.me h2{
+  font-size:20px;
+}
+
+
+
+
+
+
+
+
+

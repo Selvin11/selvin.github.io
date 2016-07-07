@@ -1,113 +1,53 @@
----
-layout: default
----
-<div class="container">
-  <div class="row">
-    <div class="col-lg-3 col-lg-offset-1">
-      <!-- 左侧sidebar -->
-      <!-- Featured Tags -->
-	    {% if site.featured-tags %}
-	    <section>
-	        <!-- no hr -->
-	        <h5><a href="/tags/">FEATURED TAGS</a></h5>
-	        <!-- 标签云 -->
-			<div id='tag_cloud' class="tags">
-				{% for tag in site.tags %}
-				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-				{% endfor %}
-			</div>
-	    </section>
-	    {% endif %}
-		<!-- Short About -->
-		<section class="visible-md visible-lg">
-		    <hr><h5><a href="{{/about/ | prepend: site.baseurl }}">ABOUT ME</a></h5>
-		    <div class="short-about">
-		        {% if site.sidebar-avatar %}
-		            <img src="{{site.sidebar-avatar}}" />
-		        {% endif %}
-		        {% if site.sidebar-about-description %}
-		            <p>{{site.sidebar-about-description}}</p>
-		        {% endif %}
-		        <!-- SNS Link -->
-		        <ul class="list-inline">
-		            {% if site.RSS %}
-		            <li>
-		                <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		            {% if site.twitter_username %}
-		            <li>
-		                <a href="https://twitter.com/{{ site.twitter_username }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		            {% if site.zhihu_username %}
-		            <li>
-		                <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa  fa-stack-1x fa-inverse">知</i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		            {% if site.weibo_username %}
-		            <li>
-		                <a target="_blank" href="http://weibo.com/{{ site.weibo_username }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		            {% if site.facebook_username %}
-		            <li>
-		                <a target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		            {% if site.github_username %}
-		            <li>
-		                <a target="_blank" href="https://github.com/{{ site.github_username }}">
-		                    <span class="fa-stack fa-lg">
-		                        <i class="fa fa-circle fa-stack-2x"></i>
-		                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-		                    </span>
-		                </a>
-		            </li>
-		            {% endif %}
-		        </ul>
-		    </div>
-		</section>
-	        <!-- Friends Blog -->
-	        {% if site.friends %}
-	        <hr>
-	        <h5>FRIENDS</h5>
-	        <ul class="list-inline">
-	            {% for friend in site.friends %}
-	                <li><a href="{{friend.href}}">{{friend.title}}</a></li>
-	            {% endfor %}
-	        </ul>
-	        {% endif %}
-    </div>
-      <!-- right -->
-    <div class="col-lg-8">
-     
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html>
 
+  <head>
+    <meta charset="utf-8">
+    <!-- 使IE按照最新引擎渲染网页 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端适配处理 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- _config.yml关键字描述 ，SEO优化处理 -->
+    <meta name="keyword" content="{{ site.keyword }}">
+    <!-- _config.yml介绍描述 -->
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <!-- 引入网站icon -->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/img/favicon.ico">
+    <!-- 引入reset样式 -->
+    <!-- 引入 bootstrap-->
+    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
+    <!-- 引入  font-awesome-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- main.css -->
+    <link rel="stylesheet" href="{{ "/css/selvin.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "/css/about.css" | prepend: site.baseurl }}">
+    <!-- SEO,防止URL不同，但是内容相同的页面被搜索引擎多次收录，导致错误的将网页降权 -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Rss -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+          <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <!-- selvin blog head -->
+  
+  <body>
+
+    {% include header.html %}
+
+
+        {{ content }}
+
+
+    <script src="{{ "/js/jquery.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/selvin.js" | prepend: site.baseurl }}"></script>
+
+  </body>
+
+</html>
