@@ -235,27 +235,27 @@ header {
   background-color: #333;
   color: white;
 }
-.title {
+section.header-title {
   float: right;
   text-align: right;
   margin: 0;
 }
 @media screen and (max-width: 767px) {
-  .title {
+  section.header-title {
     float: none;
     text-align: center;
   }
 }
-.title h1,
-.title h2 {
+section.header-title h1,
+section.header-title h2 {
   margin: 5px 0;
   line-height: 1;
 }
-.title h1 {
+section.header-title h1 {
   padding: 5px 0;
   color: white;
 }
-.title h2 {
+section.header-title h2 {
   padding: 5px 6px;
   font-weight: normal;
 }
