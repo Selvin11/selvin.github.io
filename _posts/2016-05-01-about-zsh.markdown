@@ -13,25 +13,26 @@ tags:
 > 关于shell－－：
 >
 
-[终极 Shell​ －－命令行与内核的桥梁]: http://macshuo.com/?p=676
+[终极 Shell​ －－命令行与内核的桥梁](http://macshuo.com/?p=676)
+
 
 阅读此篇文章之后，获益匪浅，进行了终端的配置后，感觉快快哒～
 
 > 关于vim－－：
 >
 
-[vim －－unbelievable​]: http://coolshell.cn/articles/5426.html
+[vim －－unbelievable​](http://coolshell.cn/articles/5426.html)
 
 此篇文章是对vim进行深入浅出的讲解和配套练习，不出半月，坚持练习，终会独孤求vim。
 
 > 关于sublime－－
->
 
-[sublime&zsh​]: http://www.jianshu.com/p/25cdc7d608bb
+
+
+[sublime&zsh​](http://www.jianshu.com/p/25cdc7d608bb)
 
 在练就神功之前，我先把我性感的sublime好好把玩一下哈，设置之后，配合命令行，随叫随到，任逍遥～
 
-![](https://raw.githubusercontent.com/Selvin11/selvin.github.io/gh-pages/img/%20shell.png)
 
 
 
